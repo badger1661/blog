@@ -1,0 +1,16 @@
+div.dis_image{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #3ad123;
+}
+
+body{
+    background-color: #000000;
+}
+
+title.post_timeline{
+    font-size: 20px;
+    color: #3ad123;
+}

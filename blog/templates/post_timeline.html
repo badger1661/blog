@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='col-sm-8 col-sm-offset-2'>
+    <h class="post_timeline">{{ title }}</h>
+
+{% for i in object_list %}
+<div class="row">
+  <div class="" style="width: 100%;">
+    <div class="thumbnail">
+      <a href="{{i.get_absolute_url }}" style="color:dimgrey; text-decoration:none" class="">
+        {% if i.post_image %}
+         <img src='{{ i.post_image.url }}' class='img-responsive'/>
+        {% endif %}
+      <div class="caption">
+        <h3>{{ i.post_title }}</h3>
+        <p>{{ i.post_content|linebreaks }}</p>
+      </div>
+      </a>
+    </div>
+  </div>
+<hr/>
+</div>
+{% endfor %}
+
+
+<nav aria-label="Navigation">
+  <ul class="pager">
+    {% if object_list.has_previous %}
+      <li><a href="?page={{ object_list.previous_page_number }}"> &larr; </a></li>
+    {% else %}
+      <li class="disabled"><a href="#"> &larr; </a></li>
+    {% endif %}
+    {{ object_list.number }}
+    {% if object_list.has_next %}
+    <li><a href="?page={{ object_list.next_page_number }}"> &rarr; </a></li>
+    {% else %}
+    <li class = "disabled"><a href="#"> &rarr; </a></li>
+    {% endif %}
+  </ul>
+</nav>
+
+</div>
+
+{% endblock content %}
