@@ -6,16 +6,50 @@
 
 
 {% block content %}
-
-<h1>Create Post</h1>
-
+<br>
+<br>
+<div>
+<div class="postform" name="hello" style="width: 70%; margin: auto; background: white; padding: 10px 10px 0px 10px; border-radius: 2px;">
 <form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
-{{ form.as_p }}
+<h1>Create Post Form:</h1>
+<hr>
+<!--Post Title-->
 
 
+<div style="padding-bottom: 10px; padding-top: 10px;">
+<label>
+    <h3><small><font color="black">Post Title:</font></small></h3>
+    {{ form.post_title }}
+</label>
+</div>
+<!--Post Content-->
 
-<input name= "myfiles" type='submit' class='btn btn-default' value='Create Post'/>
+
+<div style="padding-bottom: 5px;">
+<label>
+  <h3><small><font color="black">Post Content:</font></small></h3>
+  {{ form.post_content }}
+
+</label>
+<hr>
+</div>
+<!--Post File-->
+{{ form.post_image }}
+<br>
+<hr>
+<!--Submit Post-->
+<label>
+<input name= "myfiles" type='submit' class='button' value='Create Post'/>
+</label>
 </form>
 </div>
+</div>
+
+<br>
+<br>
+
+
+
+
 
 {% endblock content %} 

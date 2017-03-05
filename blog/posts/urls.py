@@ -17,4 +17,3 @@ urlpatterns = [
     url(r'^(?P<post_id>\d+)/delete$', post_delete, name = "post_delete"),
 
 ]
-#testing git

@@ -3,13 +3,45 @@
 {% block title %}Edit {{ instance.post_title }} | {{ block.super}}{% endblock title %}
 
 {% block content %}
-    <h1>Form</h1>
+<br>
+<br>
+<div>
+<div class="postform" name="hello" style="width: 70%; margin: auto; background: white; padding: 10px 10px 0px 10px; border-radius: 2px;">
+<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+<h1>Edit Post Form:</h1>
+<hr>
+<!--Post Title-->
 
-    <form method = 'POST' action = ''>{% csrf_token %}
+<div style="padding-bottom: 10px; padding-top: 10px;">
+<label>
+    <h3><small><font color="black">Post Title:</font></small></h3>
+    {{ form.post_title }}
+</label>
+</div>
+<!--Post Content-->
 
-    {{ form.as_p }}
-    <input type = 'submit' value='Edit Post' />
 
-  </form>
+<div style="padding-bottom: 5px;">
+<label>
+  <h3><small><font color="black">Post Content:</font></small></h3>
+  {{ form.post_content }}
+
+</label>
+<hr>
+</div>
+<!--Post File-->
+{{ form.post_image }}
+<br>
+<hr>
+<!--Submit Post-->
+<label>
+<input name= "myfiles" type='submit' class='button' value='Edit Post'/>
+</label>
+</form>
+</div>
+</div>
+
+<br>
+<br>
 
 {% endblock content %}
